@@ -14,7 +14,7 @@ body{
     opacity: 70%;
     font-family: custom;
     color:#071271;
-    font-size: large;
+    font-size: larger;
     
 }
 #player1{
@@ -27,12 +27,18 @@ body{
 #now-playing{
     order: 1;
     margin-top: 160px;
-    margin-left: -555px;
+    margin-left: -690px;
     margin-right: 350px;
     background-color: #faffff;
     max-height: 7%;
     max-width: 100%;
     border-radius: 100px;    
+}
+#times{
+    order:0;
+    margin-top: 780px;
+    margin-left: -190px;
+    font-family: monospace;
 }
 
 /* imported font */
@@ -48,17 +54,15 @@ body{
     margin: 240px 130px 75px 300px;
     display: flex;
     /* perspective - how far an object is from a viewer */
-    perspective: 1000px; 
-    
-    
+    perspective: 1000px;
 }
 .card{
     width: calc(18% - 1px);
-    height: calc(17% - 10px);
-    margin: 10px;
-    margin-top: 0px;
+    height: calc(19% - 10px);
+    margin: 15px;
+    /* margin-top: 20px; */
     position: relative;
-    box-shadow: 5px 5px 35px rgba(140, 24, 175, 0.3);
+    box-shadow: 15px 15px 45px rgba(140, 24, 175, 0.3);
     transform: scale(1);
     border-radius: 15px;
     /* preserve style - to position cards in 3D space */
@@ -92,7 +96,7 @@ img{
     transform: rotateY(180deg);
   }
 /* once clicked card will rotate 180 degrees to show its front */
-.card:hover{
+.card.flip{
     transform: rotateY(180deg);
 }
 
