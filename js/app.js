@@ -1,4 +1,3 @@
-
 document.querySelector("section").classList.toggle("hide")
 let timer = document.querySelector("#time") //timer is "time" on the game screen
 
@@ -6,8 +5,27 @@ const startButton = document.querySelector("#start-button")
 startButton.addEventListener("click", function(){
     startGame()
     setNames()
-  
+    shuffle()
+    let beginCount = setInterval(startTime, 1000)//fires up the timer
 })
+
+let inputName1
+let inputName2
+let outputName1
+let outputName2
+let playerOneName
+let playerTwoName
+
+let playerTurn = document.querySelector("#current-player")
+
+let currentPlayer = 1
+
+if(currentPlayer === 1){
+    playerTurn = playerOneName
+}else{
+    playerTurn = playerTwoName
+}
+
 
 function startGame(){
     document.querySelector(".landing-page").classList.toggle("hide")
@@ -32,9 +50,6 @@ const startTime = () => {
 
     timer.innerHTML = outputTimer
 }
-let beginCount = setInterval(startTime, 1000)
-
-
 
 // adding a flip effect
 let cards = document.querySelectorAll(".card") //select all cards
@@ -65,6 +80,7 @@ function flippedCard() {
 function isAMatch() {
     if (card1.dataset.id === card2.dataset.id) { //if datasets of these cards are the same - the cards have matched
         lockTheCards()
+        this.score +=1
         return true
     } else {
         flipBack() //if datasets of the cards are different - call this func to flip cards back
@@ -107,12 +123,12 @@ function shuffle(){ //shuffle the board
 //function to print names on the screen
 function setNames(){
 
- let inputName1 = document.querySelector("#player1").value
- let outputName1 = document.querySelector("#name1")
- let inputName2 = document.querySelector("#player2").value
- let outputName2 = document.querySelector("#name2")
+ inputName1 = document.querySelector("#player1").value
+ outputName1 = document.querySelector("#name1")
+ inputName2 = document.querySelector("#player2").value
+ outputName2 = document.querySelector("#name2")
 
-// if input will be empty, set players name
+// if input is empty, set players name
  if (inputName1 == "" || inputName2 == "") {
     inputName1 = "Player1"
     inputName2 = "Player2"
@@ -120,10 +136,10 @@ function setNames(){
 
 outputName1.innerHTML = inputName1
 outputName2.innerHTML = inputName2
+playerOneName = inputName1
+playerTwoName = inputName2
+playerTurn.innerHTML = playerOneName
 }
-
-// const player2 = document.querySelector("#player2").value
-
 
 
 
