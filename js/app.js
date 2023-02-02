@@ -1,9 +1,12 @@
+
 document.querySelector("section").classList.toggle("hide")
 let timer = document.querySelector("#time") //timer is "time" on the game screen
 
 const startButton = document.querySelector("#start-button")
 startButton.addEventListener("click", function(){
     startGame()
+    setNames()
+  
 })
 
 function startGame(){
@@ -16,11 +19,8 @@ let second = 0 //begin timer count at 0
 let minute = 0
 
 //creating a timer
-let beginCount
-
 const startTime = () => {
-    beginCount = setInterval(startTime, 1000)
-    
+
     second += 1
     if (second >= 60) {
         minute += 1
@@ -32,7 +32,7 @@ const startTime = () => {
 
     timer.innerHTML = outputTimer
 }
-
+let beginCount = setInterval(startTime, 1000)
 
 
 
@@ -104,13 +104,27 @@ function shuffle(){ //shuffle the board
     })
 }
 
-// class Player{
-//     constructor(name)
-//     name = this.name
-//     score = this.score
-// }
+//function to print names on the screen
+function setNames(){
 
-// let inputName = 
-// const newPlayer = new Player(inputName)
+ let inputName1 = document.querySelector("#player1").value
+ let outputName1 = document.querySelector("#name1")
+ let inputName2 = document.querySelector("#player2").value
+ let outputName2 = document.querySelector("#name2")
+
+// if input will be empty, set players name
+ if (inputName1 == "" || inputName2 == "") {
+    inputName1 = "Player1"
+    inputName2 = "Player2"
+ }
+
+outputName1.innerHTML = inputName1
+outputName2.innerHTML = inputName2
+}
+
+// const player2 = document.querySelector("#player2").value
+
+
+
 
 
