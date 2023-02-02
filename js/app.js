@@ -1,10 +1,26 @@
+document.querySelector("section").classList.toggle("hide")
 let timer = document.querySelector("#time") //timer is "time" on the game screen
+
+const startButton = document.querySelector("#start-button")
+startButton.addEventListener("click", function(){
+    startGame()
+})
+
+function startGame(){
+    document.querySelector(".landing-page").classList.toggle("hide")
+    document.querySelector("section").classList.toggle("hide")
+    startTime()
+}
 
 let second = 0 //begin timer count at 0
 let minute = 0
 
 //creating a timer
+let beginCount
+
 const startTime = () => {
+    beginCount = setInterval(startTime, 1000)
+    
     second += 1
     if (second >= 60) {
         minute += 1
@@ -16,9 +32,9 @@ const startTime = () => {
 
     timer.innerHTML = outputTimer
 }
-startTime()
 
-let beginCount = setInterval(startTime, 1000)
+
+
 
 // adding a flip effect
 let cards = document.querySelectorAll(".card") //select all cards
@@ -26,8 +42,15 @@ let cards = document.querySelectorAll(".card") //select all cards
 let card1 //cards from each pair that will be flipped
 let card2
 let cardIsFlipped = false //cards are not flipped on default, and are facing backwards
+let cardIsLocked = false
 
 function flippedCard() {
+    if(cardIsLocked) {
+        return
+    }else if (this === card1){ //if the same card has been clicked twice
+        return
+    }
+
     this.classList.add("flip") //add flip to all cards
 
     if (!cardIsFlipped) { //if card is flipped
@@ -35,10 +58,7 @@ function flippedCard() {
         card1 = this //add this card  to the classlist
         return
     }
-
-    cardIsFlipped = false
     card2 = this
-
     isAMatch() //call isAMatch func to check if the cards matched
 }
 
@@ -54,17 +74,43 @@ function isAMatch() {
 function lockTheCards() { //lock the cards that have matched, so they don't flip back
     card1.removeEventListener("click", flippedCard)
     card2.removeEventListener("click", flippedCard)
+
+    reverseTheBoard()
 }
 //flip the cards back if they don't match in 1 sec
 function flipBack() {
     setTimeout(() => {
         card1.classList.remove("flip")
         card2.classList.remove("flip")
+        reverseTheBoard()
     }, 1000)
 }
 
-cards.forEach(el => {
+cards.forEach(el => { //a loop that runs through all cards from the ".card" classlist
     el.addEventListener("click", flippedCard) //trigger flip with once clicked
 })
+
+function reverseTheBoard(){ //reverse the cards to their starting position
+    cardIsLocked = false
+    cardIsFlipped = false
+    card1 = null
+    card2 = null
+}
+
+function shuffle(){ //shuffle the board
+    cards.forEach(el =>{
+        let shuffled = Math.floor(Math.random() * 10)
+        el.style.order = shuffled
+    })
+}
+
+// class Player{
+//     constructor(name)
+//     name = this.name
+//     score = this.score
+// }
+
+// let inputName = 
+// const newPlayer = new Player(inputName)
 
 

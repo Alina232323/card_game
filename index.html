@@ -3,11 +3,27 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/style.css">
-  <!-- <script src="js/app.js" defer></script> -->
+  <script src="js/app.js" defer></script>
   <title>Card Game</title>
-  </div>
 </head>
 <body>
+  <div class="landing-page">
+<div class="headers" id="landing-header">
+<h1>Welcome to the Card Memory Challenge!</h1>
+<div class="buttons" id="landing-page-buttons">
+<label>Enter a name for each player:</label>  
+<br> 
+  <input id="player1" placeholder="Enter Your Name">
+  <input id="player2" placeholder="Enter Your Name">
+  <br>
+  <a href="#" id="start-button">Start</a>
+</div>
+</div>
+
+  </div>
+
+
+<section clas="game-screen">
   <div class="headers" id="player1">
     <h1>Name:<span id="name1"></span></h1>
     <h1>Score:<span id="score1"></span></h1>
@@ -17,11 +33,15 @@
     <h1>Score:<span id="score2"></span></h1>
     </div>
     <div class="headers" id="now-playing">
-    <h1>Now is playing:<span id="current-player"></span></h1>
+    <h1>Now <span id="current-player"></span> is playing</h1>
   </div>
-  <div class="headers" id="times">
-  <h1>Time:<span id="time"></span></h1>
-</div>
+  <!-- <div class="buttons" id="game-page-buttons">
+    <button>Restart</button>
+    <button>End Game</button>
+  </div> -->
+<div class="headers" id="times">
+  <h1>Time: <span id="time"></span></h1>
+    </div>
  <div class="cards-container">
   <div class="card" data-id="1img" >
 <img class="front" src="images/1img.png" alt="">
@@ -100,10 +120,10 @@
 <img class="back" src="images/10img.png">
  </div>
   <div class="card" data-id="11img">
-<img class="front" src="images/11img.png" alt="">
-<img class="back" src="images/10img.png">
+   <img class="front" src="images/11img.png" alt="">
+  <img class="back" src="images/10img.png">
  </div>
-</div>
-<script src="js/app.js" ></script>
+</section>
+
 </body>
 </html>

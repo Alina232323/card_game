@@ -1,3 +1,7 @@
+
+  .hide {
+    display: none;
+  }
 *{
     padding: 0;
     margin: 0;
@@ -8,6 +12,9 @@ body{
     display: flex;
     height: 100vh;    
 }
+section{
+    display:flex;
+}
 .headers{
     margin: 25px 30px 75px 100px;
     flex-wrap: wrap;
@@ -17,6 +24,19 @@ body{
     font-size: larger;
     
 }
+
+#landing-header{
+    font-size:xx-large; 
+    margin-left: -90px;
+}
+.landing-page{
+        position: absolute;
+        top: 50vh;
+        transform: translateY(-50%);
+        width: 100%;
+        text-align: center;
+}
+
 #player1{
     order: 0;
 
@@ -105,3 +125,47 @@ img{
         width: 600px;
     }
 }
+
+/* 
+#buttons{
+    max-height: 10%;
+    order:0;
+    margin-top: -880px;
+    margin-left: 890px;
+    max-height: 10px;
+    max-width: 150px;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  box-shadow: #ADCFFF 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  font-family: custom;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  transition: all .15s;
+  touch-action: manipulation;
+} */
+
+/* #buttons:hover {
+  background-color: #071271;
+  box-shadow: #32526a 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+#buttons:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .buttons {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
+} */
+
