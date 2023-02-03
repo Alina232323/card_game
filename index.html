@@ -7,10 +7,12 @@
   <title>Card Game</title>
 </head>
 <body>
+  
+<!-- Landing Page -->
   <div class="landing-page">
 <div class="headers" id="landing-header">
 <h1>Welcome to the Card Memory Challenge!</h1>
-<div class="buttons" id="landing-page-buttons">
+
 <label>Enter a name for each player:</label>  
 <br> 
   <input type="text" id="player1" placeholder="Enter Your Name" autocomplete="off" required>
@@ -18,12 +20,10 @@
   <br>
   <a onclick href="#" id="start-button">Start</a>
 </div>
-</div>
-
   </div>
 
-
-<section clas="game-screen">
+<!-- Main Game Page -->
+<section class="game-screen">
   <div class="headers" id="player1">
     <h1>Name:<span id="name1"></span></h1>
     <h1>Score:<span id="score1"></span></h1>
@@ -35,11 +35,14 @@
     <div class="headers" id="now-playing">
     <h1>Now <span id="current-player"></span> is playing</h1>
   </div>
-  <!-- <div class="buttons" id="game-page-buttons">
-    <button>Restart</button>
-    <button>End Game</button>
-  </div> -->
+  
 <div class="headers" id="times">
+  <div class="buttons" id="game-page-buttons">
+    <button id="restart-button">Reset Board</button>
+    <br>
+    <button id="end-game-button">End Game</button>
+  </div>
+  <br>
   <h1>Time: <span id="time"></span></h1>
     </div>
  <div class="cards-container">
@@ -124,6 +127,15 @@
   <img class="back" src="images/10img.png">
  </div>
 </section>
+
+<!-- End Page -->
+<div class="end-game-page">
+  <div class="headers" id="end-header">
+  <h1><span id="end-game-message"></span></h1>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>

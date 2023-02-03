@@ -41,44 +41,104 @@ input{
     opacity: 30%;
     padding:10px;
     font-size: x-large;
-    text-align: center;
-    
+    text-align: center;   
 }
-
-
 .landing-page{
         position: absolute;
-        top: 30vh;
-        transform: translateY(-50%);
+        /* top: 30vh; */
+        /* transform: translateY(-50%); */
         width: 100%;
         text-align: center;
-        background-image: linear-gradient(to top, #9669d2 0%, #e9dbcc 100%);
-        height:0%
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);        height:100vh;  
+}
+.headers{
+    margin-top: 300px;
 }
 
 #player1{
     order: 0;
-
+    margin-top: 100px;
 }
 #player2{
     order: 2;
+    margin-top: 100px;
 }
 #now-playing{
     order: 1;
     margin-top: 160px;
     margin-left: -690px;
     margin-right: 350px;
-    background-color: #faffff;
+    background-color: #fffafa;
     max-height: 7%;
     max-width: 100%;
     border-radius: 100px;    
 }
+#current-player{
+    color: #ee820e;
+    opacity:100%;
+}
 #times{
     order:0;
-    margin-top: 780px;
+    margin-top: 650px;
     margin-left: -190px;
     font-family: monospace;
 }
+#restart-button,#end-game-button, #start-button{
+    padding: 10px 10px 10px;
+    margin: -100px 100px 20px 25px;
+    height: 10%;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #d49efa 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #071271;
+  cursor: pointer;
+  display: inline-block;
+  font-family: custom;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#restart-button{
+    margin-bottom: 25px;
+}
+
+
+#restart-button:hover,#end-game-button:hover, #start-button:hover {
+  background-color: #f1e99f;
+  box-shadow: #322473 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+#start-button{
+    margin-top: 30px;
+    width: 15%;
+    height: 60px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+#restart-button:active,#end-game-button:active, #start-button:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+    #restart-button,#end-game-button {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
+}
+
 
 /* imported font */
 @font-face{
@@ -90,7 +150,7 @@ input{
     flex-wrap: wrap;
     width: 560px;
     height: 460px;
-    margin: 240px 130px 75px 300px;
+    margin: 240px 130px 75px 200px;
     display: flex;
     /* perspective - how far an object is from a viewer */
     perspective: 1000px;
@@ -115,6 +175,9 @@ input{
     transform: scale(0.90);
     transition: transform .5s;
 }
+.card:hover{
+    transform: scale(1.25)
+}
 /* all cards' images */
 img{
     max-height: 100px;
@@ -138,53 +201,26 @@ img{
 .card.flip{
     transform: rotateY(180deg);
 }
+.card.shuffle{
+    transform: rotateY(360deg);
+}
 
 @media screen and (min-width: 540px) and (max-width: 780px) {
     .view {
         width: 600px;
     }
 }
+.end-game-page{
+    font-size: x-large; 
+    position: absolute;
+    margin: 0px 10px 0px -30px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to top, #dfd351 0%, #f0b87c 100%);
+    height:0%;
 
-/* 
-#buttons{
-    max-height: 10%;
-    order:0;
-    margin-top: -880px;
-    margin-left: 890px;
-    max-height: 10px;
-    max-width: 150px;
-  background-color: #FFFFFF;
-  border-radius: 40em;
-  box-shadow: #ADCFFF 0 -12px 6px inset;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  font-family: custom;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -.24px;
-  margin: 0;
-  padding: 1rem 1.3rem;
-  quotes: auto;
-  text-align: center;
-  transition: all .15s;
-  touch-action: manipulation;
-} */
-
-/* #buttons:hover {
-  background-color: #071271;
-  box-shadow: #32526a 0 -6px 8px inset;
-  transform: scale(1.125);
 }
 
-#buttons:active {
-  transform: scale(1.025);
-}
 
-@media (min-width: 768px) {
-  .buttons {
-    font-size: 1.5rem;
-    padding: .75rem 2rem;
-  }
-} */
+
 
