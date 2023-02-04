@@ -175,7 +175,7 @@ input{
 /* imported font */
 @font-face{
     font-family: custom;
-    src: url(/font/Purple_Smile.otf);
+    src: url(../font/Purple_Smile.otf);
 }
 .cards-container{
     flex-wrap: wrap;
