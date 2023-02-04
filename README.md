@@ -7,7 +7,6 @@ The rules are the following: players need to pick pairs of cards that match (are
 
 Bugs: 
 
-- imported font is not working in GitHub Pages;
 - timer starts before user clicks's "start";
 - cards get stuck sometimes if you click them multiple times;
 - game's dimensions are not quite responsive per screens with different sizes.
@@ -52,6 +51,9 @@ To show a window with a "congartulations message".
 - add audio;
 - add animated flip-transition when a card is pressed.
 
+### Game URL:
+
+https://alina232323.github.io/card_game/
 
 #### Welcome screen: 
 
