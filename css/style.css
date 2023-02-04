@@ -16,7 +16,7 @@ section{
     display:flex;
 }
 .headers{
-    margin: 25px 30px 75px 100px;
+    margin: 25px 30px 35px 100px;
     flex-wrap: wrap;
     opacity: 70%;
     font-family: custom;
@@ -28,20 +28,27 @@ section{
     font-size:xx-large; 
     margin-left: -90px;
 }
-
+.input-labels{
+margin-top: 5px;
+}
 /* input name placegolders */
 input{
     border-radius:40px;
     width: 15%;
     height: 60px;
     border-style:double;
+    font-size: x-large;
+    color:#071271;
+    text-indent: 22%;
 }
 ::placeholder{
     color: #071271;
     opacity: 30%;
     padding:10px;
     font-size: x-large;
-    text-align: center;   
+    text-align: center;
+    text-indent: 0%;
+   
 }
 .landing-page{
         position: absolute;
@@ -53,35 +60,40 @@ input{
 }
 .headers{
     margin-top: 300px;
+    letter-spacing: 1px;
 }
 
 #player1{
     order: 0;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #player2{
     order: 2;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #now-playing{
     order: 1;
     margin-top: 160px;
-    margin-left: -690px;
-    margin-right: 350px;
+    margin-left: -480px;
+    margin-right: 300px;
     background-color: #fffafa;
     max-height: 7%;
     max-width: 100%;
     border-radius: 100px;    
 }
+/* #name1, #name2, #score1, #score2{
+    color: #a635b5;
+    opacity:100%;
+} */
 #current-player{
-    color: #ee820e;
+    color: #eec10e;
     opacity:100%;
 }
 #times{
     order:0;
     margin-top: 650px;
     margin-left: -190px;
-    font-family: monospace;
+
 }
 #restart-button,#end-game-button, #start-button{
     padding: 10px 10px 10px;
@@ -99,7 +111,7 @@ input{
   font-family: custom;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: -.24px;
+  letter-spacing: 5px;
   margin: 0;
   outline: none;
   padding: 1rem 1.3rem;
@@ -111,11 +123,17 @@ input{
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-#restart-button{
-    margin-bottom: 25px;
+#restart-button, #end-game-button{
+    margin:-100px 10px 2px -30px;
+    
+
 }
-
-
+#restart-button{
+    margin-bottom: 50px;
+}
+#end-game-button{
+    width: 110%;
+}
 #restart-button:hover,#end-game-button:hover, #start-button:hover {
   background-color: #f1e99f;
   box-shadow: #322473 0 -6px 8px inset;
@@ -124,7 +142,7 @@ input{
 #start-button{
     margin-top: 30px;
     width: 15%;
-    height: 60px;
+    height: 70px;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -150,10 +168,11 @@ input{
     flex-wrap: wrap;
     width: 560px;
     height: 460px;
-    margin: 240px 130px 75px 200px;
+    margin: 240px 10px 75px 110px;
     display: flex;
     /* perspective - how far an object is from a viewer */
     perspective: 1000px;
+    align-items: center;
 }
 .card{
     width: calc(18% - 1px);

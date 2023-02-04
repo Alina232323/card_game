@@ -32,9 +32,9 @@ const startTime = () => {
     let outputTimer = `${minutesOutput}:${secondsOutput}` //"time" output as shown on the screen
 
     timer.innerHTML = outputTimer
-    if (minutesOutput >= 1) {
+    if (minutesOutput >= 2) {
         clearInterval(beginCount)
-        endGame()
+        // endGame()
     }
 
 }
@@ -97,7 +97,7 @@ let cards = document.querySelectorAll(".card") //select all cards
 let card1 //cards from each pair that will be flipped
 let card2
 let cardIsFlipped = false //cards are not flipped on default, and are facing backwards
-let cardIsLocked = false
+let cardIsLocked = false //if true 2 cards have been flipped and are to be checked for a match
 
 function flipTheCard() {
     if (cardIsLocked) {
@@ -126,10 +126,20 @@ function isAMatch() {
             player2Score.innerHTML++
         }
         lockTheCards()
+        ifAllCardsGuessed()
         return true
     } else {
         flipBack() //if datasets of the cards are different - call this func to flip cards back
     }
+}
+
+let matchedCards = document.getElementsByClassName("card flip")
+
+function ifAllCardsGuessed(){
+if(matchedCards.length >= 20){
+    endGame()
+}else{
+}return
 }
 
 
@@ -182,14 +192,14 @@ function endGame() {
     document.querySelector("section").classList.toggle("hide", true)
     document.querySelector(".landing-page").classList.toggle("hide", true)
     document.querySelector(".end-game-page").classList.toggle("hide", false)
-
+    
     if (player1Score.innerHTML > player2Score.innerHTML) {
-        endGameMessage.innerHTML = `Congratulations, the challenge is over! ${playerOneName} is a winner!`
+        endGameMessage.innerHTML = "Congratulations, the challenge is over!" + "<br>" + playerOneName + " is a winner!"
     } else if (player1Score.innerHTML < player2Score.innerHTML) {
-        endGameMessage.innerHTML = `Congratulations, the challenge is over! ${playerTwoName} is a winner!`
+        endGameMessage.innerHTML = "Congratulations, the challenge is over!" + "<br>" + playerTwoName + " is a winner!"
     } else if (player1Score.innerHTML = player2Score.innerHTML && player1Score.innerHTML + player2Score.innerHTML != 0) {
-        endGameMessage.innerHTML = `Congratulations, the challenge is over! It's a draw!`
+        endGameMessage.innerHTML = "Congratulations, the challenge is over! It's a draw!"
     } else
-        endGameMessage.innerHTML = `Oops, no winners at this time! Try again!`
+        endGameMessage.innerHTML = "Oops, no winners at this time! Try again!"
     return
 }
