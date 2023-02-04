@@ -7,20 +7,26 @@
   <title>Card Game</title>
 </head>
 <body>
-  
+<!-- Audio -->
+<audio class="sounds" id="background" src="music/backgroundMusic.mp3"></audio> 
+<audio class="sounds" id="matched" src="music/matchedSound.mp3"></audio> 
+<audio class="sounds" id="click" src="music/clickSound.mp3"></audio> 
+
 <!-- Landing Page -->
   <div class="landing-page">
 <div class="headers" id="landing-header">
 <h1>Welcome to the Card Memory Challenge!</h1>
-
 <label>Enter a name for each player:</label>  
-
 <div class="input-labels">
-  <input type="text" id="player1" placeholder="Enter a Name" autocomplete="off" required>
-  <input type="text" id="player2" placeholder="Enter a Name" autocomplete="off" required>
+  <input type="text" id="player1" placeholder="Player One" autocomplete="off" required>
+  <input type="text" id="player2" placeholder="Player Two" autocomplete="off" required>
   <br>
   <button  id="start-button">Start</button>
 </div>
+</div>
+<div id="sound-controller">
+<span class="speaker"></span>
+<input type="range" id="volume-control">
 </div>
   </div>
 
@@ -37,7 +43,6 @@
     <div class="headers" id="now-playing">
     <h1>Now <span id="current-player"></span> is playing</h1>
   </div>
-  
 <div class="headers" id="times">
   <div class="buttons" id="game-page-buttons">
     <button id="restart-button">Reset Board</button>

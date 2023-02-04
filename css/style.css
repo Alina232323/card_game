@@ -1,5 +1,4 @@
-
-  .hide {
+.hide {
     display: none;
   }
 *{
@@ -22,16 +21,43 @@ section{
     font-family: custom;
     color:#071271;
     font-size: larger;
-    
 }
+/* sound */
+#sound-controller{
+    margin-top: 220px;
+    margin-right: 150px;
+}
+.speaker{
+    vertical-align: middle;
+    box-sizing: border-box;
+    display: inline-block;
+    background: currentColor;
+    background-clip: content-box;
+    width: 1em;
+    height: 1em;
+    border: .333em solid transparent;
+    border-right-color: currentColor;
+    position: relative;
+    left: -.337em;
+    margin-bottom: 50px;
+    color: #322473;
+  
+}
+#volume-control{
+    max-width:5%;
+}
+
+/* landing page */
 #landing-header{
     font-size:xx-large; 
     margin-left: -90px;
+    margin-top: 230px;
 }
 .input-labels{
 margin-top: 5px;
 }
-/* input name placegolders */
+
+/* input name placeholders */
 input{
     border-radius:40px;
     width: 15%;
@@ -39,7 +65,7 @@ input{
     border-style:double;
     font-size: x-large;
     color:#071271;
-    text-indent: 22%;
+    text-indent: 27%;
 }
 ::placeholder{
     color: #071271;
@@ -48,21 +74,17 @@ input{
     font-size: x-large;
     text-align: center;
     text-indent: 0%;
-   
 }
 .landing-page{
-        position: absolute;
-        /* top: 30vh; */
-        /* transform: translateY(-50%); */
-        width: 100%;
-        text-align: center;
-        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);        height:100vh;  
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);        height:100vh;  
 }
 .headers{
     margin-top: 300px;
     letter-spacing: 1px;
 }
-
 #player1{
     order: 0;
     margin-top: 50px;
@@ -81,10 +103,6 @@ input{
     max-width: 100%;
     border-radius: 100px;    
 }
-/* #name1, #name2, #score1, #score2{
-    color: #a635b5;
-    opacity:100%;
-} */
 #current-player{
     color: #eec10e;
     opacity:100%;
@@ -93,39 +111,37 @@ input{
     order:0;
     margin-top: 650px;
     margin-left: -190px;
-
 }
 #restart-button,#end-game-button, #start-button{
     padding: 10px 10px 10px;
     margin: -100px 100px 20px 25px;
     height: 10%;
-  appearance: none;
-  background-color: #FFFFFF;
-  border-radius: 40em;
-  border-style: none;
-  box-shadow: #d49efa 0 -12px 6px inset;
-  box-sizing: border-box;
-  color: #071271;
-  cursor: pointer;
-  display: inline-block;
-  font-family: custom;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 5px;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.3rem;
-  quotes: auto;
-  text-align: center;
-  text-decoration: none;
-  transition: all .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+    appearance: none;
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #d49efa 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #071271;
+    cursor: pointer;
+    display: inline-block;
+    font-family: custom;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.3rem;
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 #restart-button, #end-game-button{
     margin:-100px 10px 2px -30px;
-    
 
 }
 #restart-button{
@@ -149,7 +165,6 @@ input{
 #restart-button:active,#end-game-button:active, #start-button:active {
   transform: scale(1.025);
 }
-
 @media (min-width: 768px) {
     #restart-button,#end-game-button {
     font-size: 1.5rem;
@@ -157,12 +172,10 @@ input{
   }
 }
 
-
 /* imported font */
 @font-face{
     font-family: custom;
     src: url(/font/Purple_Smile.otf);
-
 }
 .cards-container{
     flex-wrap: wrap;
@@ -186,7 +199,6 @@ input{
     /* preserve style - to position cards in 3D space */
     transform-style: preserve-3d;
     transition: transform 1s;
-
 }
 
 /* triggers when a card is clicked */
@@ -197,11 +209,13 @@ input{
 .card:hover{
     transform: scale(1.25)
 }
+
 /* all cards' images */
 img{
     max-height: 100px;
     max-width:150px;
 }
+
 /* cards' front & back */
 .front,.back {
   width: 100%;
@@ -216,18 +230,10 @@ img{
 .front{
     transform: rotateY(180deg);
   }
+
 /* once clicked card will rotate 180 degrees to show its front */
 .card.flip{
     transform: rotateY(180deg);
-}
-.card.shuffle{
-    transform: rotateY(360deg);
-}
-
-@media screen and (min-width: 540px) and (max-width: 780px) {
-    .view {
-        width: 600px;
-    }
 }
 .end-game-page{
     font-size: x-large; 

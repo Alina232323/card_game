@@ -1,25 +1,49 @@
 document.querySelector("section").classList.toggle("hide", true)
 document.querySelector(".end-game-page").classList.toggle("hide", true)
 
-const endGameButton = document.querySelector("#end-game-button")
-endGameButton.addEventListener("click", function() {
-    endGame()
+// music controller declared
+let music = document.querySelector("audio")
+let volume = document.querySelector("#volume-control");
+volume.addEventListener("input", function(e) {
+    music.volume = e.currentTarget.value / 100;
 })
 
+// music
+let backgroundMusic = document.querySelector("#background")
+let matchedSound = document.querySelector("#matched")
+let clickSound = document.querySelector("#click")
+
+// buttons
 const startButton = document.querySelector("#start-button")
 startButton.addEventListener("click", function() {
+    clickSound.play()
+    backgroundMusic.play()
     startGame()
     setNames()
     shuffle()
     beginCount = setInterval(startTime, 1000) //fires up the timer
 })
+
+const endGameButton = document.querySelector("#end-game-button")
+endGameButton.addEventListener("click", function() {
+    clickSound.play()
+    endGame()
+})
+
+const restartButton = document.querySelector("#restart-button")
+restartButton.addEventListener("click", function() {
+    clickSound.play()
+    clearCardValues()
+    shuffle()
+})
+
+//creating a timer
 let timer = document.querySelector("#time") //timer is "time" on the game screen
 let beginCount
 
-let second = 0 //begin timer count at 0
+let second = 0 
 let minute = 0
 
-//creating a timer
 const startTime = () => {
 
     second += 1
@@ -34,11 +58,12 @@ const startTime = () => {
     timer.innerHTML = outputTimer
     if (minutesOutput >= 2) {
         clearInterval(beginCount)
-        // endGame()
+        endGame()
     }
 
 }
 
+// declarations
 let inputName1
 let inputName2
 let outputName1
@@ -50,7 +75,7 @@ let player1Score = document.querySelector("#score1")
 let player2Score = document.querySelector("#score2")
 let currentPlayerScore
 
-//function to print names on the screen
+// function to print names on the screen
 function setNames() {
 
     inputName1 = document.querySelector("#player1").value
@@ -58,10 +83,10 @@ function setNames() {
     inputName2 = document.querySelector("#player2").value
     outputName2 = document.querySelector("#name2")
 
-    // if input is empty, set players name
+// if input is empty, set default names
     if (inputName1 == "" || inputName2 == "") {
-        inputName1 = "Player1"
-        inputName2 = "Player2"
+        inputName1 = " Player 1"
+        inputName2 = " Player 2"
     }
 
     outputName1.innerHTML = inputName1
@@ -73,6 +98,7 @@ function setNames() {
     playerTurn.innerHTML = playerOneName
 
 }
+
 //function to switch turns for players if cards haven't matched  
 function switchPlayer() {
     if (playerTurn.innerHTML === playerOneName) {
@@ -85,6 +111,7 @@ function switchPlayer() {
     }
 }
 
+// start game
 function startGame() {
     document.querySelector(".landing-page").classList.toggle("hide", true)
     document.querySelector("section").classList.toggle("hide", false)
@@ -97,10 +124,11 @@ let cards = document.querySelectorAll(".card") //select all cards
 let card1 //cards from each pair that will be flipped
 let card2
 let cardIsFlipped = false //cards are not flipped on default, and are facing backwards
-let cardIsLocked = false //if true 2 cards have been flipped and are to be checked for a match
+let cardsAreLocked = false //if true 2 cards have been flipped, and are to be checked for a match
 
+//
 function flipTheCard() {
-    if (cardIsLocked) {
+    if (cardsAreLocked) {
         return
     } else if (this === card1) { //if the same card has been clicked twice
         return
@@ -117,6 +145,7 @@ function flipTheCard() {
     isAMatch() //call isAMatch func to check if the cards matched
 }
 
+// check if cards have matched
 function isAMatch() {
     if (card1.dataset.id === card2.dataset.id) { //if datasets of these cards are the same - the cards have matched
 
@@ -125,6 +154,7 @@ function isAMatch() {
         } else if (playerTurn.innerHTML === playerTwoName) {
             player2Score.innerHTML++
         }
+        matchedSound.play()
         lockTheCards()
         ifAllCardsGuessed()
         return true
@@ -135,20 +165,23 @@ function isAMatch() {
 
 let matchedCards = document.getElementsByClassName("card flip")
 
-function ifAllCardsGuessed(){
-if(matchedCards.length >= 20){
-    endGame()
-}else{
-}return
+// end game if all cards have been guessed
+function ifAllCardsGuessed() {
+    if (matchedCards.length >= 20) {
+        endGame()
+    } else {
+    return
+    }
 }
 
-
-function lockTheCards() { //lock the cards that have matched, so they don't flip back
+// lock the cards that have matched, so they don't flip back
+function lockTheCards() { 
     card1.removeEventListener("click", flipTheCard)
     card2.removeEventListener("click", flipTheCard)
     clearCardValues()
 }
-//flip the cards back if they don't match 
+
+// flip the cards back if they don't match 
 function flipBack() {
     setTimeout(() => {
         card1.classList.remove("flip")
@@ -158,18 +191,21 @@ function flipBack() {
     }, 1000)
 }
 
-cards.forEach(el => { //a loop that runs through all cards from the ".card" classlist
+//a loop that runs through all cards from the ".card" classlist
+cards.forEach(el => { 
     el.addEventListener("click", flipTheCard) //trigger flip with once clicked
 })
 
-function clearCardValues() { //empty cards' values
-    cardIsLocked = false
+//empty cards' values
+function clearCardValues() { 
+    cardsAreLocked = false
     cardIsFlipped = false
     card1 = null
     card2 = null
 }
 
-function shuffle() { //shuffle the board
+//shuffle cards on the board and clear the scores
+function shuffle() { 
     cards.forEach(el => {
         let shuffled = Math.floor(Math.random() * 10)
         el.style.order = shuffled
@@ -178,21 +214,16 @@ function shuffle() { //shuffle the board
     })
    
 }
-
-const restartButton = document.querySelector("#restart-button")
-restartButton.addEventListener("click", function() {
-    clearCardValues()
-    shuffle()
-})
-
+// end game header
 let endGameMessage = document.querySelector("#end-game-message")
 
+// end game function
 function endGame() {
 
     document.querySelector("section").classList.toggle("hide", true)
     document.querySelector(".landing-page").classList.toggle("hide", true)
     document.querySelector(".end-game-page").classList.toggle("hide", false)
-    
+
     if (player1Score.innerHTML > player2Score.innerHTML) {
         endGameMessage.innerHTML = "Congratulations, the challenge is over!" + "<br>" + playerOneName + " is a winner!"
     } else if (player1Score.innerHTML < player2Score.innerHTML) {
