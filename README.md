@@ -7,6 +7,7 @@ The rules are the following: players need to pick pairs of cards that match (are
 
 Bugs: 
 
+- imported font is not working in GitHub Pages;
 - timer starts before user clicks's "start";
 - cards get stuck sometimes if you click them multiple times;
 - game's dimensions are not quite responsive per screens with different sizes.
