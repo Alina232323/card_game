@@ -53,7 +53,7 @@ To show a window with a "congartulations message".
 
 ### Game URL:
 
-[https://alina232323.github.io/card_game/](https://alinabpol.github.io/card_game/)
+[https://alinabpol.github.io/card_game/](https://alinabpol.github.io/card_game/)
 
 #### Welcome screen: 
 
