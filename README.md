@@ -32,7 +32,7 @@ Upcoming features:
 
 ## User Stories
 
-#### As a player I want:
+#### As a user I want:
 -  to be able to input and see my name on the screen;
 - to keep a track of time and see a time count on the screen, as well as my current score;
 - to be able and open 2 cards (one after another) per each players turn, to see if the cards match;
@@ -40,16 +40,6 @@ Upcoming features:
 -  to see cards that were opened by the other player;
 - to see the result of the game once it ended.
 
-
-### MVP Goals
-Welcome screen to enter each player's name.
-Game screen with a set of hidden cards, which show their value once are clicked.
-Game ends once the timer finishes or when all of the cards have been guessed.
-To show a window with a "congartulations message". 
-
-### Stretch Goals
-- add audio;
-- add animated flip-transition when a card is pressed.
 
 ### Game URL:
 
